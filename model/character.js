@@ -8,13 +8,22 @@ export class Character {
   }
 
   displayCharacter() {
-    const desc = document.getElementById('desc');
-    desc.innerHTML = `Nom: ${this.name}</br>`
-    desc.innerHTML += `Date de Naissance: ${this.birthYear}</br>`;
-    desc.innerHTML += `Mesure: ${this.height}</br>`;
-    desc.innerHTML += `Pèse: ${this.mass}</br>`;
-    desc.innerHTML += `Planète d'origine: ${this.planet}</br>`
+    const nameCharacter = document.getElementById('name');
+    nameCharacter.innerHTML = this.name;
+
+    const birth = document.getElementById('birth');
+    birth.innerHTML = this.birthYear;
+
+    const height = document.getElementById('height');
+    height.innerHTML = this.height;
+
+    const mass = document.getElementById('mass');
+    mass.innerHTML = this.mass;
+    
+    const planet = document.getElementById('planet');
+    planet.innerHTML = this.planet;
   }
 }
+
 
 // Cette class sert à définir les caractéristiques du personnage

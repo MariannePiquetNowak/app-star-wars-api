@@ -13,16 +13,25 @@
 <body>
     <div id="out">
         <img src="star-wars.png" alt="star-wars">
-        <div id="desc"></div>
+        <span class="title-element">Nom :</span>
+        <div id="name"></div>
+        <span class="title-element">Année de naissance :</span>
+        <div id="birth"></div>
+        <span class="title-element">Taille :</span>
+        <div id="height"></div>   
+        <span class="title-element">Poids :</span>
+        <div id="mass"></div>   
+        <span class="title-element">Planète d'origine :</span>
+        <div id="planet"></div>   
+        <div id="films"></div>  
         <div id="button">
             <div class="button" onclick="loadRandomCharacter()">
               <p>Personnage au hasard</p>
             </div>
-            <div class="button">
+            <div class="button" onclick="loadRandomCharacterFilms()">
               <p>Films associés</p>
             </div>
         </div>
-        
     </div>
 </body>
 </html>

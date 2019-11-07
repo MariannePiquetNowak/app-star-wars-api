@@ -1,6 +1,8 @@
 import { Character } from './model/character.js';
 
 window.loadRandomCharacter = loadRandomCharacter;
+// window.loadRandomCharacterFilms = loadRandomCharacterFilms;
+
 
 const baseUrl = `https://swapi.co/api/`;  
 let characterList = [];
@@ -40,5 +42,22 @@ async function loadRandomCharacter() {
   character.displayCharacter();
 }
 
+
+// async function loadRandomCharacterFilms() {
+//   console.log('aquecoucou');
+//   // Je récupère l'appel à la fonction précédente pour accéder à toutes ses infos
+//   const randomCharacter = await loadRandomCharacter();
+
+
+
+// }
+
+
+/* 
+Note à moi-même : 
+Penser à réaliser des pop-up pour expliquer le principe de l'app
+et permettre de faire attendre l'utilisateur, le temps que tous 
+les appels soient chargés
+*/
 
 
