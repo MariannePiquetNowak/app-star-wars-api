@@ -1,7 +1,8 @@
 import { Character } from './model/character.js';
+import { Film } from './model/film.js';
 
 window.loadRandomCharacter = loadRandomCharacter;
-// window.loadRandomCharacterFilms = loadRandomCharacterFilms;
+window.loadRandomCharacterFilms = loadRandomCharacterFilms;
 
 
 const baseUrl = `https://swapi.co/api/`;  
@@ -31,26 +32,34 @@ async function getCharacterList() {
   }
 }
 
-async function loadRandomCharacter() {
-  // console.log(characterList.length);  
-  const i = Math.floor(Math.random() * (characterList.length - 0 + 1)) + 0;
-  const randomCharacter = characterList[i]
-  const planet = await axios.get(randomCharacter.homeworld);
-  randomCharacter.homeworld = planet.data.name.toLowerCase().includes('unknown') ? 'Non renseignée' : planet.data.name;  
-  const character = new Character(randomCharacter);  
-  // console.log(character);
+let character;
+
+async function loadRandomCharacter() { 
+  const i = (Math.floor(Math.random() * (characterList.length - 0 + 1)) + 0) - 1 ;
+  const randomCharacter = characterList[i];
+  console.log(randomCharacter);
+  console.log(characterList);
+  console.log(i);
+  
+  const planet = await axios.get(randomCharacter.homeworld);  
+  randomCharacter.homeworld = planet.data.name;  
+  character = new Character(randomCharacter);  
   character.displayCharacter();
+
+  for (const filmUrl of randomCharacter.films) {
+    const film = await axios.get(filmUrl);
+
+    // film = new Film(film.data)
+    // character.films.push(film);
+    // Ou sinon, plus rapide : 
+    character.films.push(new Film(film.data));
+  }
 }
 
+function loadRandomCharacterFilms() {
+  character.displayFilms();
+}
 
-// async function loadRandomCharacterFilms() {
-//   console.log('aquecoucou');
-//   // Je récupère l'appel à la fonction précédente pour accéder à toutes ses infos
-//   const randomCharacter = await loadRandomCharacter();
-
-
-
-// }
 
 
 /* 

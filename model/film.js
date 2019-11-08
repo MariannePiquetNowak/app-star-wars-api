@@ -1,5 +1,6 @@
 export class Film {
-  constructor(title) {
-    this.title = title;
+  constructor(film) {
+    this.title = film.title;
   }
+
 }
